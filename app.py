@@ -206,11 +206,14 @@ def download_pdf():
                 pdf.ln(6)
             pdf.ln(2)
 
-    # Save PDF
+    # Save PDF to BytesIO
     pdf_output = BytesIO()
     pdf.output(pdf_output)
+    
+    # Ensure the pointer is at the beginning
     pdf_output.seek(0)
 
+    # Return the PDF as a downloadable file
     return send_file(pdf_output, as_attachment=True, download_name="resume_analysis.pdf", mimetype="application/pdf")
 
 if __name__ == "__main__":
