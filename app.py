@@ -15,6 +15,8 @@ from pdf2image import convert_from_path
 import pytesseract
 import pdfplumber
 
+from io import BytesIO
+
 app = Flask(__name__)
 # app.config['UPLOAD_FOLDER'] = 'uploads'
 TEMP_DIR = '/tmp'
@@ -205,12 +207,11 @@ def download_pdf():
             pdf.ln(2)
 
     # Save PDF
-    timestamp = datetime.datetime.now().strftime("%H%M%S%d%m%Y")
-    output_path = os.path.join(TEMP_DIR, f"resume_analysis_{timestamp}.pdf")
-    # output_path = f"E:/CE_79_Nishchal_Kansara/Python_Project/ResumeRadar/resume_analysis/resume_analysis_{timestamp}.pdf"
-    pdf.output(output_path)
+    pdf_output = BytesIO()
+    pdf.output(pdf_output)
+    pdf_output.seek(0)
 
-    return send_file(output_path, as_attachment=True)
+    return send_file(pdf_output, as_attachment=True, download_name="resume_analysis.pdf", mimetype="application/pdf")
 
 if __name__ == "__main__":
     if not os.path.exists('uploads'):
