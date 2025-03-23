@@ -69,6 +69,11 @@ def select_resume():
     files = [f for f in os.listdir(TEMP_DIR) if f.endswith('.pdf')]
     return render_template("select_resume.html", files=files)
 
+# Problem Statement
+@app.route("/problem_solution")
+def problem_solution():
+    return render_template("problem_solution.html")
+
 # Analyze Resume
 @app.route("/analyze_resume", methods=["POST"])
 def analyze_resume():
