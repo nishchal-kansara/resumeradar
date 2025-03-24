@@ -1,0 +1,30 @@
+We are searching for a motivated and experienced AI/ML trainer with at least 1.5 years of experience teaching professionals or students the fundamentals of AI and ML. In addition to having actual experience with AI/ML technologies, the ideal applicant should be able to conduct interesting and useful training sessions.
+
+Key Responsibilities:
+
+Lead interactive AI/ML training sessions for professionals, students, or business clients.
+Create and construct projects, assignments, training materials, and tests for courses on artificial intelligence and machine learning.
+Clearly describe the many AI/ML principles, such as reinforcement learning, computer vision, NLP, deep learning, supervised learning, and unsupervised learning.
+Help students use Python, TensorFlow, PyTorch, Scikit-learn, OpenCV, NLP packages, and other tools to create machine learning models.
+Give students advice on practical projects and assist them in creating AI/ML applications.
+Keep abreast of the most recent developments in AI and ML, and adapt the training materials accordingly.
+Organize interactive workshops, debugging activities, and live coding sessions.
+Evaluate students' progress, provide them constructive criticism, and assist them in developing their abilities.
+Mentor students in real-world industry difficulties, AI/ML job opportunities, and certifications.
+
+Required Skills:
+
+Excellent understanding of AI, data science, machine learning, and deep learning.
+Expertise in Python, NumPy, Pandas, Matplotlib, TensorFlow, PyTorch, OpenCV, and natural language processing equipment.
+Proficiency in offering AI/ML training or coaching to students.
+Excellent presentation and communication abilities.
+The capacity to communicate intricate AI/ML ideas in an understandable and captivating way.
+Prior knowledge of Cloud AI platforms (AWS/GCP/Azure), Google Colab, Kaggle, and Jupyter Notebooks is advantageous.
+Prior experience deploying AI projects with Flask, FastAPI, or Streamlit is advantageous.
+It is advantageous to have knowledge of ChatGPT, Generative AI, or LLMs (Large Language Models).
+
+Qualifications:
+
+A bachelor's or master's degree in data science, artificial intelligence, computer science, or a similar discipline.
+
+Preferable are AI/ML certifications (such as TensorFlow Developer, AWS AI, Coursera ML, etc.)
