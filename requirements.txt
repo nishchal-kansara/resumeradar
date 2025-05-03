@@ -1,0 +1,10 @@
+Flask
+markdown2
+fpdf
+beautifulsoup4
+python-dotenv
+google-generativeai
+Pillow
+pdf2image
+pytesseract
+pdfplumber
