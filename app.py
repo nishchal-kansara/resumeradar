@@ -13,7 +13,8 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'userFiles'
+# app.config['UPLOAD_FOLDER'] = 'userFiles'
+TEMP_DIR = '/tmp'
 
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -43,7 +44,7 @@ def index():
     if request.method == "POST":
         file = request.files["resume_pdf"]
         if file and file.filename.endswith(".pdf"):
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+            file.save(os.path.join(TEMP_DIR, file.filename))
             return render_template("index.html", uploaded=True)
     return render_template("index.html")
 
@@ -51,7 +52,7 @@ def index():
 @app.route("/resumeAnalysis", methods=["GET"])
 def resumeAnalysis():
     files = [
-        f for f in os.listdir(app.config['UPLOAD_FOLDER'])
+        f for f in os.listdir(TEMP_DIR)
         if f.endswith('.pdf') and not f.startswith("resumeradar_pdf")
     ]
     
@@ -61,7 +62,7 @@ def resumeAnalysis():
 @app.route("/resumeReport", methods=["POST"])
 def resumeReport():
     filename = request.form.get("resume_filename")
-    pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    pdf_path = os.path.join(TEMP_DIR, filename)
     
     resume_text = extract_text_from_pdf(pdf_path)
     analysis_type = request.form.get("analysis_type")
@@ -165,7 +166,7 @@ def resumeReport():
 @app.route("/resumeBuilder", methods=["GET"])
 def resumeBuilder():
     files = [
-        f for f in os.listdir(app.config['UPLOAD_FOLDER'])
+        f for f in os.listdir(TEMP_DIR)
         if f.endswith('.pdf') and not f.startswith("resumeradar_pdf")
     ]
 
@@ -175,7 +176,7 @@ def resumeBuilder():
 @app.route("/rebuildATS", methods=["POST"])
 def rebuildATS():
     filename = request.form.get("resume_filename")
-    pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    pdf_path = os.path.join(TEMP_DIR, filename)
     
     resume_text = extract_text_from_pdf(pdf_path)
 
@@ -257,7 +258,7 @@ def buildATS():
 @app.route("/coverLetterBuilder", methods=["GET"])
 def coverLetterBuilder():
     files = [
-        f for f in os.listdir(app.config['UPLOAD_FOLDER'])
+        f for f in os.listdir(TEMP_DIR)
         if f.endswith('.pdf') and not f.startswith("resumeradar_pdf")
     ]
 
@@ -266,7 +267,7 @@ def coverLetterBuilder():
 @app.route("/coverLetterBuild", methods=["POST"])
 def coverLetterBuild():
     filename = request.form.get("resume_filename")
-    pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    pdf_path = os.path.join(TEMP_DIR, filename)
     
     resume_text = extract_text_from_pdf(pdf_path)
     build_type = request.form.get("build_type")
@@ -310,7 +311,7 @@ def coverLetterBuild():
 @app.route("/mockInterviewPreparation", methods=["GET"])
 def mockInterviewPreparation():
     files = [
-        f for f in os.listdir(app.config['UPLOAD_FOLDER'])
+        f for f in os.listdir(TEMP_DIR)
         if f.endswith('.pdf') and not f.startswith("resumeradar_pdf")
     ]
 
@@ -319,7 +320,7 @@ def mockInterviewPreparation():
 @app.route("/mockInterview", methods=["POST"])
 def mockInterview():
     filename = request.form.get("resume_filename")
-    pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    pdf_path = os.path.join(TEMP_DIR, filename)
     
     resume_text = extract_text_from_pdf(pdf_path)
     interview_type = request.form.get("interview_type")
@@ -489,7 +490,8 @@ def download_pdf():
 
     # Save PDF
     timestamp = datetime.datetime.now().strftime("%H%M%S%d%m%Y")
-    output_path = f"E:/CE_79_Nishchal_Kansara/Python_Project/ResumeRadar1/userFiles/resumeradar_pdf_{timestamp}.pdf"
+    output_path = os.path.join(TEMP_DIR, f"resumeradar_pdf_{timestamp}.pdf")
+    # output_path = f"E:/CE_79_Nishchal_Kansara/Python_Project/ResumeRadar1/userFiles/resumeradar_pdf_{timestamp}.pdf"
     pdf.output(output_path)
 
     return send_file(output_path, as_attachment=True)
