@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRadar - Career Opportunities</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* Custom Font */
+        @font-face {
+            font-family: 'circular-std';
+            src: url('https://nishchal-kansara.web.app/assets/fonts/circular-std.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary: #3155e7;
+            --primary-dark: #2045d6;
+            --black: #010101;
+            --gray-1: #788190;
+            --gray-2: #d3d4db;
+            --white: #ffffff;
+            --body: #fefefe;
+        }
+
+        body {
+            font-family: 'circular-std', sans-serif;
+            background-color: var(--body);
+        }
+
+        /* Section: Navbar */
+        .navbar .btn-outline-secondary {
+            border: 1px solid var(--gray-2);
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            padding: 10px 16px;
+        }
+
+        .navbar {
+            padding: 20px 0;
+        }
+
+        .nav-link {
+            margin-left: 41px;
+            font-size: 16px;
+            color: var(--gray-1);
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+            color: var(--black);
+        }
+
+        /* Section: Information */
+        section.information h2 {
+            padding: 20px 0;
+        }
+
+        section.information h5 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 48px;
+            color: var(--black);
+        }
+
+        section.information p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 28px;
+            color: var(--gray-1);
+            padding-top: 20px;
+        }
+
+        section.information .info-1 {
+            padding: 50px 0;
+            background: #2C3E50;
+            background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
+            background: linear-gradient(to right, #4CA1AF, #2C3E50);
+            border-radius: 12px;
+            color: var(--white);
+        }
+
+        section.setup .info-2 {
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #4CA1AF, #2C3E50) border-box;
+            margin-top: 20px;
+            padding: 50px;
+
+        }
+
+        section.setup .disclaimer {
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            margin-top: 8px;
+            padding: 10px;
+        }
+
+        section.setup .text-header h3 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 48px;
+            color: var(--black);
+        }
+
+        section.setup .text-header p {
+            font-size: 16px;
+            text-align: left;
+            font-weight: 700;
+            line-height: 28px;
+            color: var(--gray-1);
+            padding: 27px 0;
+        }
+
+        section.setup h5 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            color: var(--black);
+            padding-bottom: 18px;
+        }
+
+        section.setup .desc p {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 22px;
+            color: var(--gray-1);
+            max-width: 284px;
+            margin: 0 auto;
+        }
+
+        /* Browse File */
+        .custom-upload {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #4CA1AF, #2C3E50);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .custom-upload:hover {
+            background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Section: Footer */
+        footer {
+            margin-bottom: 22px;
+        }
+
+        footer a {
+            font-weight: bold;
+            /* font-size: 14px; */
+            color: var(--black);
+            line-height: 18px;
+        }
+
+        footer .copy {
+            margin-top: 22px;
+            /* font-size: 14px; */
+            color: var(--gray-1);
+            line-height: 17px;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 20px 0;
+            }
+
+            .nav-link {
+                margin-left: 0;
+            }
+
+            section.information .info-1 {
+                margin: 1%;
+            }
+
+            section.setup .info-2 {
+                margin: 5% 1% 1% 1%;
+                padding: 50px 0;
+            }
+
+            section.setup .disclaimer {
+                margin: 5% 1% 1% 1%;
+                padding: 15px 0;
+            }
+
+            footer .copy {
+                margin: 5% 1% 1% 1%;
+                font-size: 12px;
+            }
+
+            footer a {
+                font-size: 12px;
+            }
+        }
+
+        /* Select */
+        .custom-select {
+            width: 100%;
+            padding: 6px 12px;
+            border: 1px solid #198754;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+            font-size: 16px;
+            appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-select:focus {
+            border-color: #4CA1AF;
+            box-shadow: 0 0 5px rgba(76, 161, 175, 0.5);
+            outline: none;
+        }
+
+        /* Spinner */
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid;
+            border-image: linear-gradient(90deg, #2C3E50, #4CA1AF) 1;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner-overlay"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); z-index: 9999; align-items: center; justify-content: center;">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/"><h5>ResumeRadar</h5></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="/">Home</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resume</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/resumeAnalysis">Resume Analysis</a></li>
+                            <li><a class="dropdown-item" href="/resumeBuilder">Resume Builder</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="/coverLetterBuilder">Cover Letter Builder</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Career</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/mockInterviewPreparation">Interview Preparation</a></li>
+                            <li><a class="dropdown-item" href="/careerOpportunities">Career Opportunities</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="/findPeople">Find People</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/aboutProject">About Project</a></li>
+                            <li><a class="dropdown-item" href="/contactUs">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="information">
+        <div class="container">
+            <div class="row info-1">
+                <div class="col-md-12">
+                    <div class="text-information">
+                        <div class="text-header text-center">
+                            <h1 style="font-weight: bold;">Career Opportunities</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="setup">
+        <div class="container">
+            <div class="row info-2">
+                <div class="col-md-12">
+                    <div class="text-header text-center">
+                        <h3 style="font-weight: bold;">Explore Career Opportunities!</h3>
+                    </div>
+                    <div class="text-information-1">
+                        <form action="/exploreOpportunities" method="POST">
+                            <label for="user_level">Select Level:</label>
+                            <select name="user_level" id="user_level" class="custom-select" required onchange="showSections(this.value)">
+                                <option value="">Select</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Fresher">Fresher</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Experienced">Experienced</option>
+                            </select><br><br>
+
+                            <label for="role">Role:</label>
+                            <input type="text" name="role" class="custom-select" autocomplete="off" placeholder="Data Science, Business Analyst" required><br><br>
+
+                            <label for="work_type">Work Type:</label>
+                            <select name="work_type" id="work_type" class="custom-select" required onchange="handleWorkTimeChange(this.value)">
+                                <option value="">Select</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Remote">Remote</option>
+                            </select><br><br>
+
+                            <div id="location-section">
+                                <label for="country">Select Country:</label>
+                                <select id="country" name="country" class="custom-select" onchange="populateStates()"
+                                    required>
+                                    <option value="">Select</option>
+                                </select><br><br>
+
+                                <label for="state">Select State:</label>
+                                <select id="state" name="state" class="custom-select">
+                                    <option value="">Select</option>
+                                </select><br><br>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-success btn-user btn-block w-100">Explore Opportunities <i class="bi bi-box-arrow-in-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="setup">
+        <div class="container">
+            <div class="row disclaimer">
+                <div class="col-md-12">
+                    <p style=" margin-bottom: 0px; ">Note: We don’t store any of your personal data. Your uploaded files are auto-deleted from our server within 10–15 minutes. Privacy first, always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copy">&copy; 2025 ResumeRadar. Designed & Developed By <a href="/" style="text-decoration: none;">Insight Strikers</a>.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    document.querySelectorAll('form').forEach(function (form) {
+        form.addEventListener('submit', function () {
+            document.getElementById('spinner-overlay').style.display = 'flex';
+        });
+    });
+
+    window.addEventListener('load', function () {
+        document.getElementById('spinner-overlay').style.display = 'none';
+    });
+
+    const jsonUrl = "https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/json/countries%2Bstates.json";
+
+    let countryStateData = [];
+
+    window.onload = function () {
+        fetch(jsonUrl)
+            .then(response => response.json())
+            .then(data => {
+                countryStateData = data;
+                populateCountries();
+            })
+            .catch(error => console.error("Error Loading!", error));
+    };
+
+    function populateCountries() {
+        const countrySelect = document.getElementById("country");
+        countrySelect.length = 1;
+
+        countryStateData.forEach(country => {
+            let opt = document.createElement("option");
+            opt.value = country.name;
+            opt.text = country.name;
+            countrySelect.appendChild(opt);
+        });
+    }
+
+    function populateStates() {
+        const countrySelect = document.getElementById("country");
+        const stateSelect = document.getElementById("state");
+        stateSelect.length = 1;
+        const selectedCountry = countrySelect.value;
+
+        const country = countryStateData.find(c => c.name === selectedCountry);
+
+        if (country && country.states && country.states.length > 0) {
+            country.states.forEach(state => {
+                let opt = document.createElement("option");
+                opt.value = state;
+                opt.text = state;
+                stateSelect.appendChild(opt);
+            });
+        } else {
+            let opt = document.createElement("option");
+            opt.value = "";
+            opt.text = "No states available";
+            stateSelect.appendChild(opt);
+        }
+    }
+
+    function handleWorkTimeChange(value) {
+        const locationSection = document.getElementById("location-section");
+
+        if (value === "Remote") {
+            locationSection.style.display = "none";
+            document.getElementById("country").required = false;
+            document.getElementById("state").required = false;
+        } else {
+            locationSection.style.display = "block";
+            document.getElementById("country").required = true;
+            document.getElementById("state").required = true;
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

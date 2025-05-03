@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeRadar - About Project</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* Custom Font */
+        @font-face {
+            font-family: 'circular-std';
+            src: url('https://nishchal-kansara.web.app/assets/fonts/circular-std.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary: #3155e7;
+            --primary-dark: #2045d6;
+            --black: #010101;
+            --gray-1: #788190;
+            --gray-2: #d3d4db;
+            --white: #ffffff;
+            --body: #fefefe;
+        }
+
+        body {
+            font-family: 'circular-std', sans-serif;
+            background-color: var(--body);
+        }
+
+        /* Section: Navbar */
+        .navbar .btn-outline-secondary {
+            border: 1px solid var(--gray-2);
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            padding: 10px 16px;
+        }
+
+        .navbar {
+            padding: 20px 0;
+        }
+
+        .nav-link {
+            margin-left: 41px;
+            font-size: 16px;
+            color: var(--gray-1);
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+            color: var(--black);
+        }
+
+        /* Section: Information */
+        section.information h2 {
+            padding: 20px 0;
+        }
+
+        section.information h5 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 48px;
+            color: var(--black);
+        }
+
+        section.information p {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 28px;
+            color: var(--gray-1);
+            padding-top: 20px;
+        }
+
+        section.information .info-1 {
+            padding: 50px 0;
+            background: #2C3E50;
+            background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
+            background: linear-gradient(to right, #4CA1AF, #2C3E50);
+            border-radius: 12px;
+            color: var(--white);
+        }
+
+        section.setup .info-2 {
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, #4CA1AF, #2C3E50) border-box;
+            margin-top: 20px;
+            padding: 12px 6px;
+        }
+
+        section.setup .text-header h3 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 48px;
+            color: var(--black);
+        }
+
+        section.setup .text-header p {
+            font-size: 16px;
+            text-align: left;
+            font-weight: 700;
+            line-height: 28px;
+            color: var(--gray-1);
+            padding: 27px 0;
+        }
+
+        section.setup h5 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 24px;
+            color: var(--black);
+            padding-bottom: 18px;
+        }
+
+        section.setup .desc p {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 22px;
+            color: var(--gray-1);
+            max-width: 284px;
+            margin: 0 auto;
+        }
+
+        /* Browse File */
+        .custom-upload {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, #4CA1AF, #2C3E50);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .custom-upload:hover {
+            background: linear-gradient(90deg, #2C3E50, #4CA1AF);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Section: Footer */
+        footer {
+            margin-bottom: 22px;
+        }
+
+        footer a {
+            font-weight: bold;
+            /* font-size: 16px; */
+            color: var(--black);
+            line-height: 18px;
+        }
+
+        footer .copy {
+            margin-top: 22px;
+            /* font-size: 16px; */
+            color: var(--gray-1);
+            line-height: 17px;
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 20px 0;
+            }
+
+            .nav-link {
+                margin-left: 0;
+            }
+
+            section.information .info-1 {
+                margin: 1%;
+            }
+
+            section.setup .info-2 {
+                margin: 5% 1% 1% 1%;
+                padding: 12px 6px;
+            }
+
+            footer .copy {
+                margin: 5% 1% 1% 1%;
+                font-size: 12px;
+            }
+
+            footer a {
+                font-size: 12px;
+            }
+        }
+
+        /* Select */
+        .custom-select {
+            width: 100%;
+            padding: 6px 12px;
+            border: 1px solid #198754;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+            font-size: 16px;
+            appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-select:focus {
+            border-color: #4CA1AF;
+            box-shadow: 0 0 5px rgba(76, 161, 175, 0.5);
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/"><h5>ResumeRadar</h5></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="/">Home</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resume</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/resumeAnalysis">Resume Analysis</a></li>
+                            <li><a class="dropdown-item" href="/resumeBuilder">Resume Builder</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="/coverLetterBuilder">Cover Letter Builder</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Career</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/mockInterviewPreparation">Interview Preparation</a></li>
+                            <li><a class="dropdown-item" href="/careerOpportunities">Career Opportunities</a></li>
+                        </ul>
+                    </div>
+                    <a class="nav-link" href="/findPeople">Find People</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
+                        <ul class="dropdown-menu" aria-labelledby="toolsDropdown">
+                            <li><a class="dropdown-item" href="/aboutProject">About Project</a></li>
+                            <li><a class="dropdown-item" href="/contactUs">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="information">
+        <div class="container">
+            <div class="row info-1">
+                <div class="col-md-12">
+                    <div class="text-information">
+                        <div class="text-header text-center">
+                            <h1 style="font-weight: bold;">About Project</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="setup">
+        <div class="container">
+            <div class="row info-2">
+                <div class="col-md-12">
+                    <h5 style="font-weight: bold;">About ResumeRadar</h5>
+                    <div class="text-information-1">
+                        <p>It is an <strong>AI-powered</strong> platform designed to simplify your job application journey - from resume analysis to interview preparation. Whether you're starting from scratch or improving your existing resume, <strong>ResumeRadar</strong> gives you smart tools to get noticed by recruiters and beat <strong>ATS (Applicant Tracking Systems)</strong>.<br><strong>And here's the best part?</strong> We don't store any of your personal data. Your uploaded files are auto-deleted from our server within 10-15 minutes. Privacy first, always.</p>
+                    </div>
+                    <h5 style="font-weight: bold;">What We Do?</h5>
+                    <div class="text-information-1">
+                        <ol>
+                            <li>At <strong>ResumeRadar</strong>, we help you understand and improve your resume like never before. You begin by uploading your resume on the homepage. Our system instantly analyzes it and compares it with a job description you provide. This gives you a detailed breakdown of keyword matching, skills gap, experience alignment, and even your ATS compatibility score - so you know where you stand before applying.</li>
+                            <li>But we don't stop there. You can rebuild your resume using insights from the analysis. Either refine your existing one to make it ATS-friendly or create a brand new one from scratch by simply answering a few basic questions. This makes it easy for anyone - student, fresher, or experienced professional - to create a polished, professional resume in minutes.</li>
+                            <li><strong>Need a cover letter?</strong> We've got you. Just input your resume and the job description, and we'll instantly generate a tailored cover letter that matches the role. And when it's time to face the interview, you can use our mock interview feature to prepare. Based on your resume and the job description, we'll generate relevant questions so you can practice confidently.</li>
+                        </ol>
+                    </div>
+                    <h5 style="font-weight: bold;">Why Choose ResumeRadar?</h5>
+                    <div class="text-information-1">
+                        <p>We built <strong>ResumeRadar</strong> to take the guesswork out of job applications. Our tools are fast, smart, and built for real people - not just recruiters. We support job seekers at all stages - students, freshers, experienced candidates, and those switching careers - by giving them personalized support through every step of the application process.</p>
+                    </div>
+                    <h5 style="font-weight: bold;">Our Mission</h5>
+                    <div class="text-information-1">
+                        <p>At <strong>ResumeRadar</strong>, our mission is to simplify the resume creation process, making it accessible and efficient for everyone. Whether you're entering the job market for the first time or looking to make a career switch, we're here to help you present your best self to potential employers.</p>
+                    </div>
+                    <h5 style="font-weight: bold;">Who We Serve?</h5>
+                    <div class="text-information-1">
+                        <ol>
+                            <li><strong>Interns:</strong> Building a resume with limited experience? No worries! We'll help you create a resume that focuses on your skills, education, and potential.</li>
+                            <li><strong>Freshers:</strong> Just graduated and looking for your first job? Our platform helps you highlight your academic achievements, projects, and any relevant experience.</li>
+                            <li><strong>Intermediate Professionals:</strong> Ready to move up the ladder? Showcase your growing career and accomplishments with a polished, professional resume.</li>
+                            <li><strong>Experienced Professionals:</strong> With years of experience, you want a resume that makes an impact. Our tool ensures that your resume is ATS-optimized and highlights your career progression.</li>
+                        </ol>
+                    </div>
+                    <h5 style="font-weight: bold;">Meet Our Team</h5>
+                    <div class="text-information-1">
+                        <p>We're a team of developers, designers, and job seekers who've been through the same struggle. That's why we created <strong>ResumeRadar</strong> - to make resumes and applications less stressful, and way more effective.</p>
+                        <ol>
+                            <li><strong>Nishchal Kansara:</strong> <a style="text-decoration: none;" href="https://www.linkedin.com/in/nishchal-kansara/">LinkedIn</a> | <a style="text-decoration: none;" href="https://github.com/nishchal-kansara/">GitHub</a></li>
+                            <li><strong>Krishi Shah:</strong> <a style="text-decoration: none;" href="https://www.linkedin.com/in/krishi-shah-16a934345/">LinkedIn</a> | <a style="text-decoration: none;" href="https://github.com/Krishishah7/">GitHub</a></li>
+                            <li><strong>Vidhi Patel:</strong> <a style="text-decoration: none;" href="https://www.linkedin.com/in/vidhi-patel-42a11726b/">LinkedIn</a> | <a style="text-decoration: none;" href="https://github.com/vidhipatel8804/">GitHub</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copy">&copy; 2025 ResumeRadar. Designed & Developed By <a href="/" style="text-decoration: none;">Insight Strikers</a>.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
