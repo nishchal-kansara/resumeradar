@@ -162,7 +162,7 @@ def resumeReport():
 
     # analysis = response.text.strip()
     chat_completion = client.chat.completions.create(
-        model="llama3-70b-8192",   # or llama3-8b-8192
+        model="llama-3.3-70b-versatile",   # or llama3-8b-8192
         messages=[
             {"role": "system", "content": "You are a professional resume analyst and career consultant."},
             {"role": "user", "content": base_prompt}
@@ -217,7 +217,7 @@ def rebuildATS():
 
     # response = model.generate_content(base_prompt)
     chat_completion = client.chat.completions.create(
-        model="llama3-70b-8192",   # or llama3-8b-8192
+        model="llama-3.3-70b-versatile",   # or llama3-8b-8192
         messages=[
             {"role": "system", "content": "You are a professional resume analyst and career consultant."},
             {"role": "user", "content": base_prompt}
@@ -272,7 +272,7 @@ def buildATS():
     
     # analysis = response.text.strip()
     chat_completion = client.chat.completions.create(
-        model="llama3-70b-8192",   # or llama3-8b-8192
+        model="llama-3.3-70b-versatile",   # or llama3-8b-8192
         messages=[
             {"role": "system", "content": "You are a professional resume analyst and career consultant."},
             {"role": "user", "content": base_prompt}
@@ -334,7 +334,7 @@ def coverLetterBuild():
 
     # analysis = response.text.strip()
     chat_completion = client.chat.completions.create(
-        model="llama3-70b-8192",   # or llama3-8b-8192
+        model="llama-3.3-70b-versatile",   # or llama3-8b-8192
         messages=[
             {"role": "system", "content": "You are a professional resume analyst and career consultant."},
             {"role": "user", "content": base_prompt}
@@ -404,7 +404,7 @@ def mockInterview():
 
     # analysis = response.text.strip()
     chat_completion = client.chat.completions.create(
-        model="llama3-70b-8192",   # or llama3-8b-8192
+        model="llama-3.3-70b-versatile",   # or llama3-8b-8192
         messages=[
             {"role": "system", "content": "You are a professional resume analyst and career consultant."},
             {"role": "user", "content": base_prompt}
@@ -547,3 +547,4 @@ if __name__ == "__main__":
     if not os.path.exists('userFiles'):
         os.makedirs('userFiles')
     app.run(debug=True)
+
