@@ -75,7 +75,7 @@ def resumeReport():
     if analysis_type in ["resume_jd_analysis", "resume_jd_score"] and not job_description.strip():
         return render_template("error.html", error_code="422", message="Job Description is required for this! Please check and try again.") # Ensure the user is filling out the job description field in the form before submitting.
     
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.0-flash")
 
     # Resume Analysis
     if analysis_type == "resume_analysis":
@@ -158,9 +158,18 @@ def resumeReport():
         {job_description}
         """    
 
-    response = model.generate_content(base_prompt)
+    # response = model.generate_content(base_prompt)
 
-    analysis = response.text.strip()
+    # analysis = response.text.strip()
+    chat_completion = client.chat.completions.create(
+        model="llama3-70b-8192",   # or llama3-8b-8192
+        messages=[
+            {"role": "system", "content": "You are a professional resume analyst and career consultant."},
+            {"role": "user", "content": base_prompt}
+        ],
+    )
+
+    analysis = chat_completion.choices[0].message.content.strip()
     formatted_analysis = markdown2.markdown(analysis)
     return render_template("resumeradarResponse.html", analysis=formatted_analysis)
 
@@ -185,7 +194,7 @@ def rebuildATS():
     if not resume_text:
         return render_template("error.html", error_code="400", message="Resume text is required for this!") # Text extraction from the PDF file is failing.
     
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.0-flash")
 
     base_prompt = f"""
     You are a sophisticated ATS (Applicant Tracking System) scanner with deep understanding of hiring criteria, professional resume writer and career expert. The provided resume which may not be ATS-friendly.
@@ -206,16 +215,25 @@ def rebuildATS():
     2. Estimated Match Score: (0-100%).
     """ 
 
-    response = model.generate_content(base_prompt)
+    # response = model.generate_content(base_prompt)
+    chat_completion = client.chat.completions.create(
+        model="llama3-70b-8192",   # or llama3-8b-8192
+        messages=[
+            {"role": "system", "content": "You are a professional resume analyst and career consultant."},
+            {"role": "user", "content": base_prompt}
+        ],
+    )
+
+    analysis = chat_completion.choices[0].message.content.strip()
     
-    analysis = response.text.strip()
+    # analysis = response.text.strip()
     formatted_analysis = markdown2.markdown(analysis)
     return render_template("resumeradarResponse.html", analysis=formatted_analysis)
 
 # Build ATS Resume
 @app.route("/buildATS", methods=["POST"])
 def buildATS():
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.0-flash")
     
     user_data = {
         "user_level": request.form.get("user_level"),
@@ -250,9 +268,18 @@ def buildATS():
     -Use professional language and proper bulleting.
     """
 
-    response = model.generate_content(base_prompt)
+    # response = model.generate_content(base_prompt)
     
-    analysis = response.text.strip()
+    # analysis = response.text.strip()
+    chat_completion = client.chat.completions.create(
+        model="llama3-70b-8192",   # or llama3-8b-8192
+        messages=[
+            {"role": "system", "content": "You are a professional resume analyst and career consultant."},
+            {"role": "user", "content": base_prompt}
+        ],
+    )
+
+    analysis = chat_completion.choices[0].message.content.strip()
     formatted_analysis = markdown2.markdown(analysis)
     return render_template("resumeradarResponse.html", analysis=formatted_analysis)
 
@@ -280,7 +307,7 @@ def coverLetterBuild():
     if build_type in ["coverLetterJD"] and not job_description.strip():
         return render_template("error.html", error_code="422", message="JJob Description is required for this! Please check and try again.") # Ensure the user is filling out the job description field in the form before submitting.
     
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.0-flash")
 
     # Cover Letter (Resume)
     if build_type == "coverLetterResume":
@@ -303,9 +330,18 @@ def coverLetterBuild():
         {job_description}
         """ 
 
-    response = model.generate_content(base_prompt)
+    # response = model.generate_content(base_prompt)
 
-    analysis = response.text.strip()
+    # analysis = response.text.strip()
+    chat_completion = client.chat.completions.create(
+        model="llama3-70b-8192",   # or llama3-8b-8192
+        messages=[
+            {"role": "system", "content": "You are a professional resume analyst and career consultant."},
+            {"role": "user", "content": base_prompt}
+        ],
+    )
+
+    analysis = chat_completion.choices[0].message.content.strip()
     formatted_analysis = markdown2.markdown(analysis)
     return render_template("resumeradarResponse.html", analysis=formatted_analysis)
 
@@ -333,7 +369,7 @@ def mockInterview():
     if interview_type in ["mockInterviewResumeJD"] and not job_description.strip():
         return render_template("error.html", error_code="422", message="Job Description is required for this! Please check and try again.") # Ensure the user is filling out the job description field in the form before submitting.
     
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    # model = genai.GenerativeModel("gemini-2.0-flash")
 
     # Mock Interview Preparation (Resume)
     if interview_type == "mockInterviewResume":
@@ -364,9 +400,18 @@ def mockInterview():
         {job_description}
         """ 
 
-    response = model.generate_content(base_prompt)
+    # response = model.generate_content(base_prompt)
 
-    analysis = response.text.strip()
+    # analysis = response.text.strip()
+    chat_completion = client.chat.completions.create(
+        model="llama3-70b-8192",   # or llama3-8b-8192
+        messages=[
+            {"role": "system", "content": "You are a professional resume analyst and career consultant."},
+            {"role": "user", "content": base_prompt}
+        ],
+    )
+
+    analysis = chat_completion.choices[0].message.content.strip()
     formatted_analysis = markdown2.markdown(analysis)
     return render_template("resumeradarResponse.html", analysis=formatted_analysis)
 
@@ -502,4 +547,3 @@ if __name__ == "__main__":
     if not os.path.exists('userFiles'):
         os.makedirs('userFiles')
     app.run(debug=True)
-
