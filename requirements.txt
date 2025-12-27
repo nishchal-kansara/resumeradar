@@ -8,3 +8,4 @@ Pillow
 pdf2image
 pytesseract
 pdfplumber
+groq
