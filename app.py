@@ -10,14 +10,16 @@ from fpdf import FPDF
 import pdfplumber
 
 from dotenv import load_dotenv
-import google.generativeai as genai
+# import google.generativeai as genai
+from groq import Groq
 
 app = Flask(__name__)
 # app.config['UPLOAD_FOLDER'] = 'userFiles'
 TEMP_DIR = '/tmp'
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Text Extraction
 def extract_text_from_pdf(pdf_path):
@@ -500,3 +502,4 @@ if __name__ == "__main__":
     if not os.path.exists('userFiles'):
         os.makedirs('userFiles')
     app.run(debug=True)
+
